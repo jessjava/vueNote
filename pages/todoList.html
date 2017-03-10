@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>vue todoList 应用演示</title>
+    <link rel="stylesheet" href="../src/css/css.css">
+    <script src="../src/js/2/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        todolist
+        <br><br>
+        <input type="text" v-model="todoContent">
+        <button @click="addToList">ADD</button>
+        <ul>
+            <li v-for="l,index of list">
+                {{l}}
+                <button @click="remove(index)">X</button>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            list:["todo1","todo2","todo3"],
+            todoContent:""
+        },
+        methods:{
+            addToList:function(e){
+                if(this.todoContent){
+                    this.list.push(this.todoContent)
+                    this.todoContent = "";
+                }else{
+                    alert("请输入内容");
+                }
+            },
+            remove:function(e){
+                this.list.splice(e,1);
+            }
+        }
+    });
+</script>
+</html>

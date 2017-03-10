@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>vue 简单示例</title>
+    <link rel="stylesheet" href="../src/css/css.css">
+    <script src="../src/js/2/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{count}}
+        <br>
+        <button @click="inc" style="width:100px;padding:10px;">add</button>
+    </div>
+</body>
+<script>
+    var appVue = new Vue({
+        //el:"#app",
+        data:{
+            count:1
+        },
+        methods:{
+            inc(){this.count ++;}
+        }
+    });
+    //如果 Vue 对象没有传递 el 参数,则需要手动绑定
+    appVue.$mount('#app');
+</script>
+</html>

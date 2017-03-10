@@ -1,0 +1,10 @@
+div#app {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    min-height: 400px;
+    background-color: #ECECEC;
+}
+button{
+    cursor:pointer;
+}

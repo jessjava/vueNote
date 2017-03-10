@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>vue watch 示例</title>
+    <link rel="stylesheet" href="../src/css/css.css">
+    <script src="../src/js/2/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="clearMsg" style="padding:5px 8px;float:right;">clearMsg</button>
+    <br>
+    <input type="text" v-model="numberA">
+    <br>
+    <input type="text" v-model="numberB">
+
+    <div v-html="msg">
+
+    </div>
+</div>
+</body>
+<script>
+    //watch 示例
+    //可以直接使用 watch 参数
+    //可以使用 computed 参数
+    var appVue = new Vue({
+        el:"#app",
+        data:{
+            numberA:"A",
+            numberB:"B",
+            msg:""
+        },
+        watch:{
+          numberA:function(){
+              this.msg+="<br/>this is numberA : "+this.numberA;
+          },
+          numberB:"watchNumberB"
+        },
+        methods:{
+            watchNumberB:function(){
+                this.msg+="<br/>this is numberB : "+this.numberB;
+            },
+            clearMsg(){
+                this.msg = "";
+            }
+        }
+    });
+</script>
+</html>
